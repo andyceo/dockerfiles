@@ -7,7 +7,7 @@ This repository contain Bitcoin Core Node.
 
     sudo docker run -d -p 8333:8333 -p 8333:8333/udp -v bitcoin:/root andyceo/bitcoin
 
-This will create container with running bitcoin daemon inside, will create named volume to store root user home directory. Also it will open port 8333 on host system for both tcp and udp protocols.
+This will create container with running Bitcoin Core daemon inside, will create named volume to store root user home directory. Also it will open port 8333 on host system for both tcp and udp protocols.
 
 
 ## Volumes
