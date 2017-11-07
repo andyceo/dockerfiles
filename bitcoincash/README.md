@@ -5,7 +5,7 @@ This repository contain Bitcoin Cash Node.
 
 ## Quick start
 
-    sudo docker run -d -p 8333:8333 -p 8333:8333/udp -v bitcoin:/root andyceo/bitcoincash
+    sudo docker run -d -p 8333:8333 -p 8333:8333/udp -v bitcoincash:/root andyceo/bitcoincash
 
 This will create container with running Bitcoin Cash daemon inside, will create named volume to store root user home directory. Also it will open port 8333 on host system for both tcp and udp protocols.
 
