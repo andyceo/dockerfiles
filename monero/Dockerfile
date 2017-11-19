@@ -1,6 +1,6 @@
 FROM alpine as crawler
-ENV VERSION v0.11.0.0
-ENV CHECKSUM fa7742c822f3c966aa842bf20a9920803d690d9db02033d9b397cefc7cc07ff4
+ENV VERSION v0.11.1.0
+ENV CHECKSUM 6581506f8a030d8d50b38744ba7144f2765c9028d18d990beb316e13655ab248
 WORKDIR /tmp
 RUN apk add --no-cache --update ca-certificates curl && \
     update-ca-certificates && \
