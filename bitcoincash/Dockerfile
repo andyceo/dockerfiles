@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Andrey Andreev <andyceo@yandex.ru> (@andyceo)
-ENV VERSION 0.15.0
+ENV VERSION 0.16.1
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
