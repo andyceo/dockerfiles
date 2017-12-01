@@ -2,7 +2,8 @@ FROM debian:stretch-slim as builder
 WORKDIR /root
 RUN apt-get update -qq && apt-get install -qqy git libmicrohttpd-dev libssl-dev cmake build-essential libhwloc-dev && \
     git clone https://github.com/fireice-uk/xmr-stak.git && \
-    sed -i 's/constexpr double fDevDonationLevel.*/constexpr double fDevDonationLevel = 0.0;/' /root/xmr-stak/xmrstak/donate-level.hpp && cd xmr-stak-cpu && \
+    sed -i 's/constexpr double fDevDonationLevel.*/constexpr double fDevDonationLevel = 0.0;/' xmr-stak/xmrstak/donate-level.hpp && \
+    cd xmr-stak && \
     cmake -DCMAKE_LINK_STATIC=ON \
           -DXMR-STAK_COMPILE=generic \
           -DCMAKE_BUILD_TYPE=Release \
@@ -13,7 +14,7 @@ RUN apt-get update -qq && apt-get install -qqy git libmicrohttpd-dev libssl-dev 
           -DCPU_ENABLE=ON \
           -DOpenCL_ENABLE=OFF \
           -DCUDA_ENABLE=OFF \
-    .. && \make install
+    . && \make install
 
 FROM debian:stretch-slim
 MAINTAINER Andrey Andreev <andyceo@yandex.ru> (@andyceo)
