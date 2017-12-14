@@ -16,4 +16,4 @@ COPY --from=crawler /waves-testnet.conf /waves-testnet.conf
 EXPOSE 6869 6868
 VOLUME ["/root"]
 ENTRYPOINT ["/usr/bin/java", "-jar", "/waves.jar"]
-CMD ["waves-mainnet.conf"]
+CMD ["/waves-mainnet.conf"]
