@@ -1,0 +1,32 @@
+"pool_list":
+[
+
+    {"pool_address" : "pool.minemonero.pro:3333", "wallet_address" : "YOUR_WALLET_GOES_HERE", "pool_password" : "HOSTNAME:EMAIL", "use_nicehash" : false, "use_tls" : false, "tls_fingerprint" : "", "pool_weight" : 10 },
+
+],
+
+"currency": "monero",
+
+/* Other */
+"use_slow_memory": "warn",
+"aes_override": null,
+"tls_secure_algo": true,
+"daemon_mode": true,
+
+/* Network */
+"call_timeout": 10,
+"retry_time": 10,
+"giveup_limit": 0,
+
+/* Output control */
+"verbose_level": 3,
+"print_motd": true,
+"h_print_time": 60,
+"flush_stdout": false,
+"output_file": "",
+
+/* http */
+"httpd_port" : 0,
+"http_login" : "",
+"http_pass" : "",
+"prefer_ipv4" : true,
