@@ -7,7 +7,7 @@ RUN apk add --no-cache --update ca-certificates curl && \
     curl -sLo /waves-mainnet.conf "https://raw.githubusercontent.com/wavesplatform/Waves/v${WAVES_VERSION}/waves-mainnet.conf" && \
     curl -sLo /waves-testnet.conf "https://raw.githubusercontent.com/wavesplatform/Waves/v${WAVES_VERSION}/waves-testnet.conf"
 
-FROM openjdk:jre-alpine
+FROM openjdk:9-jre-slim
 MAINTAINER Andrey Andreev <andyceo@yandex.ru> (@andyceo)
 COPY --from=crawler /waves.jar /waves.jar
 COPY --from=crawler /waves-devnet.conf /waves-devnet.conf
