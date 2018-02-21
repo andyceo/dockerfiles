@@ -15,7 +15,12 @@ Will be the same as **Waves** releases: https://github.com/wavesplatform/Waves/r
 
 ## Volumes
 
-- **`/root:rw`** - folder to store wallet and blockchain data (`/root/waves/data`, `/root/waves/wallet` respectively).
+- **`/root/waves:rw`** - main Waves node directory that store wallet, peers and blockchain data. The user in container is `root`, it's home directory is `/root`, so Waves directory become `${user.home}"/waves"` (see [Waves Node Configuration File](https://github.com/wavesplatform/Waves/wiki/Waves-Node-Configuration-File))
+
+
+## Confguration
+
+The working directory in container is root filesystem `/`, so you should place custom config to `/local.conf` to read it from default configuration file (see `include "local.conf"` in `/waves-mainnet.conf` for example).
 
 
 ## Private net
