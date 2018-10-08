@@ -5,8 +5,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
         ca-certificates \
-        software-properties-common \
-        wget && \
+        software-properties-common && \
     add-apt-repository ppa:bitcoin/bitcoin && \
     apt-get update && \
     apt-get install -y --no-install-recommends bitcoind && \
