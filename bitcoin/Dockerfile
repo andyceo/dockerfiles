@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Andrey Andreev <andyceo@yandex.ru> (@andyceo)
+LABEL maintainer="Andrey Andreev <andyceo@yandex.ru> (@andyceo)"
 ENV VERSION 0.16.2
 RUN apt-get update && \
     apt-get upgrade -y && \
