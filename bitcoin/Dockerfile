@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 LABEL maintainer="Andrey Andreev <andyceo@yandex.ru> (@andyceo)"
 ENV VERSION 0.17.0
 RUN apt-get update && \
