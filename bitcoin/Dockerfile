@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get autoclean -y && \
     apt-get clean
-VOLUME /root
+VOLUME /root/.bitcoin
 ENTRYPOINT ["/usr/bin/bitcoind", "-printtoconsole"]
 HEALTHCHECK --interval=5m --timeout=1m \
     CMD bitcoin-cli getinfo || exit 1
