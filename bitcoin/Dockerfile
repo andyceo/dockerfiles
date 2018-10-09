@@ -16,4 +16,4 @@ RUN apt-get update && \
 VOLUME /root/.bitcoin
 ENTRYPOINT ["/usr/bin/bitcoind", "-printtoconsole"]
 HEALTHCHECK --interval=5m --timeout=1m \
-    CMD bitcoin-cli getinfo || exit 1
+    CMD bitcoin-cli getblockchaininfo || exit 1
