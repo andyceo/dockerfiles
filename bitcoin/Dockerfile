@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 LABEL maintainer="Andrey Andreev <andyceo@yandex.ru> (@andyceo)"
-ENV VERSION 0.16.3
+ENV VERSION 0.17.1
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
