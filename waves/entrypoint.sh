@@ -19,7 +19,7 @@ echo "WAVES_WALLET_SEED='${WAVES_WALLET_SEED}'"
 echo "WAVES_WALLET_PASSWORD='${WAVES_WALLET_PASSWORD}'"
 echo "JAVA_OPTS='${JAVA_OPTS}'"
 
-echo java -Dlogback.stdout.level=${WAVES_LOG_LEVEL} \
+java -Dlogback.stdout.level=${WAVES_LOG_LEVEL} \
 	-XX:+ExitOnOutOfMemoryError \
 	-Xmx${WAVES_HEAP_SIZE} \
 	-Dconfig.override_with_env_vars=true \
