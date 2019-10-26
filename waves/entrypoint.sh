@@ -2,7 +2,7 @@
 
 set -e
 
-JAVA_OPTS=
+JAVA_OPTS="-Dwaves.data-directory=/app/wavesdir/data -Dwaves.directory=/app/wavesdir"
 WAVES_LOG_LEVEL=DEBUG
 WAVES_HEAP_SIZE=2g
 WAVES_NETWORK=mainnet

@@ -10,11 +10,9 @@ RUN apk add --no-cache --update ca-certificates curl && \
 
 FROM openjdk:11-jre-slim
 MAINTAINER Andrey Andreev <andyceo@yandex.ru> (@andyceo)
-COPY --from=crawler /waves.jar /waves.jar
-COPY --from=crawler /waves-devnet.conf /waves-devnet.conf
-COPY --from=crawler /waves-mainnet.conf /waves-mainnet.conf
-COPY --from=crawler /waves-testnet.conf /waves-testnet.conf
-COPY ./entrypoint.sh /
+WORKDIR /app
+COPY --from=crawler /waves.jar /waves-devnet.conf /waves-mainnet.conf /waves-testnet.conf ./entrypoint.sh /app/
+RUN mkdir /app/wavesdir
 EXPOSE 6869 6868 6863 6862
-VOLUME ["/root/waves"]
+VOLUME ["/app/wavesdir"]
 ENTRYPOINT ["/entrypoint.sh"]
