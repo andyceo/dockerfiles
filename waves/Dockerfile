@@ -14,7 +14,7 @@ COPY --from=crawler /waves.jar /waves.jar
 COPY --from=crawler /waves-devnet.conf /waves-devnet.conf
 COPY --from=crawler /waves-mainnet.conf /waves-mainnet.conf
 COPY --from=crawler /waves-testnet.conf /waves-testnet.conf
-EXPOSE 6869 6868
+COPY ./entrypoint.sh /
+EXPOSE 6869 6868 6863 6862
 VOLUME ["/root/waves"]
-ENTRYPOINT ["java", "-jar", "/waves.jar"]
-CMD ["/waves-mainnet.conf"]
+ENTRYPOINT ["/entrypoint.sh"]
