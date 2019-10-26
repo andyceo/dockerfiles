@@ -12,7 +12,8 @@ FROM openjdk:11-jre-slim
 MAINTAINER Andrey Andreev <andyceo@yandex.ru> (@andyceo)
 WORKDIR /app
 COPY --from=crawler /waves.jar /waves-devnet.conf /waves-mainnet.conf /waves-testnet.conf ./entrypoint.sh /app/
+COPY ./entrypoint.sh /app/
 RUN mkdir /app/wavesdir
 EXPOSE 6869 6868 6863 6862
 VOLUME ["/app/wavesdir"]
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
