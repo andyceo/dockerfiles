@@ -1,12 +1,11 @@
-FROM ubuntu:16.04
-MAINTAINER Andrey Andreev <andyceo@yandex.ru> (@andyceo)
-ENV VERSION 0.15.1
+FROM ubuntu:18.04
+LABEL maintainer="Andrey Andreev <andyceo@yandex.ru> (@andyceo)"
+ENV VERSION 0.18.1
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
         ca-certificates \
-        software-properties-common \
-        wget && \
+        software-properties-common && \
     add-apt-repository ppa:bitcoin/bitcoin && \
     apt-get update && \
     apt-get install -y --no-install-recommends bitcoind && \
@@ -14,7 +13,9 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get autoclean -y && \
     apt-get clean
-VOLUME /root
+VOLUME /root/.bitcoin
+# API at 8332, node communication at 8333
+EXPOSE 8332 8333
 ENTRYPOINT ["/usr/bin/bitcoind", "-printtoconsole"]
 HEALTHCHECK --interval=5m --timeout=1m \
-    CMD bitcoin-cli getinfo || exit 1
+    CMD bitcoin-cli getblockchaininfo || exit 1
