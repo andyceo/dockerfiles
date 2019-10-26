@@ -23,5 +23,5 @@ java -Dlogback.stdout.level=${WAVES_LOG_LEVEL} \
 	-XX:+ExitOnOutOfMemoryError \
 	-Xmx${WAVES_HEAP_SIZE} \
 	-Dconfig.override_with_env_vars=true \
-	"${JAVA_OPTS}" \
+	${JAVA_OPTS} \
 	-jar /waves.jar "/waves-${WAVES_NETWORK}.conf"
