@@ -21,7 +21,7 @@ RUN apt-get update -yqq && \
     tar -xzf *.tar.gz -C /opt && \
     mv /opt/bitcoin-${BITCOIN_VERSION} /opt/bitcoin && \
     rm *.tar.gz *.asc && \
-    apt-get purge -yq curl gnupg
+    apt-get purge -yq curl gnupg && \
     rm -rf /root/.gnupg && \
     apt-get autoremove -yq && \
     apt-get autoclean -yq && \
