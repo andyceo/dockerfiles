@@ -2,12 +2,10 @@ FROM debian:stable-slim
 LABEL maintainer="Andrey Andreev <andyceo@yandex.ru> (@andyceo)"
 ENV BITCOIN_VERSION 0.18.1
 
-RUN apt-get update -y && \
+RUN apt-get update -yqq && \
+    apt-get upgrade -yqq && \
     apt-get install -y curl gnupg && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN set -ex && \
+    set -ex && \
     for key in 01EA5486DE18A882D4C2684590C8019E36C2E964; do \
       gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key" || \
       gpg --batch --keyserver pgp.mit.edu --recv-keys "$key" || \
@@ -21,11 +19,10 @@ RUN set -ex && \
     gpg --verify SHA256SUMS.asc && \
     grep " bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz\$" SHA256SUMS.asc | sha256sum -c - && \
     tar -xzf *.tar.gz -C /opt && \
-    rm *.tar.gz *.asc
-
-RUN apt-get purge -yq curl gnupg && \
-    rm -rf /root/.gnupg && \
     mv /opt/bitcoin-${BITCOIN_VERSION} /opt/bitcoin && \
+    rm *.tar.gz *.asc && \
+    apt-get purge -yq curl gnupg
+    rm -rf /root/.gnupg && \
     apt-get autoremove -yq && \
     apt-get autoclean -yq && \
     apt-get clean && \
