@@ -34,6 +34,6 @@ RUN apt-get purge -yq curl gnupg && \
 VOLUME /root/.bitcoin
 # API at 8332, node communication at 8333 for Mainnet
 EXPOSE 8332 8333 18332 18333 18443 18444
-ENTRYPOINT ["/opt/bin/bitcoind", "-printtoconsole"]
+ENTRYPOINT ["bitcoind", "-printtoconsole"]
 HEALTHCHECK --interval=5m --timeout=1m \
     CMD bitcoin-cli getblockchaininfo || exit 1
