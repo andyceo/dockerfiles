@@ -20,6 +20,7 @@ RUN apt-get update -yqq && \
     grep " bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz\$" SHA256SUMS.asc | sha256sum -c - && \
     tar -xzf *.tar.gz -C /opt && \
     mv /opt/bitcoin-${BITCOIN_VERSION} /opt/bitcoin && \
+    rm /opt/bitcoin/bin/bitcoin-qt /opt/bitcoin/bin/test_bitcoin && \
     rm *.tar.gz *.asc && \
     apt-get purge -yq curl gnupg && \
     rm -rf /root/.gnupg && \
@@ -28,6 +29,7 @@ RUN apt-get update -yqq && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+WORKDIR /opt/bitcoin/bin
 VOLUME /root/.bitcoin
 # API at 8332, node communication at 8333 for Mainnet
 EXPOSE 8332 8333 18332 18333 18443 18444
