@@ -24,6 +24,7 @@ RUN apt-get update -yqq && \
     rm *.tar.gz *.asc && \
     apt-get purge -yq curl gnupg && \
     rm -rf /root/.gnupg && \
+    echo "unset HISTFILE\nset +o history" >> /root/.bash_profile && \
     apt-get autoremove -yq && \
     apt-get autoclean -yq && \
     apt-get clean && \
