@@ -1,5 +1,5 @@
 FROM alpine as crawler
-ENV WAVES_VERSION 1.1.6
+ENV WAVES_VERSION 1.1.9
 RUN apk add --no-cache --update ca-certificates curl && \
     update-ca-certificates && \
     curl -sLo /waves.jar "https://github.com/wavesplatform/Waves/releases/download/v${WAVES_VERSION}/waves-all-${WAVES_VERSION}.jar" && \
