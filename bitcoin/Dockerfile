@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 LABEL maintainer="Andrey Andreev <andyceo@yandex.ru> (@andyceo)"
-ENV BITCOIN_VERSION 0.20.1
+ENV BITCOIN_VERSION 0.21.0
 
 RUN apt-get update -yqq && \
     apt-get upgrade -yqq && \
