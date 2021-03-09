@@ -1,5 +1,5 @@
 FROM alpine as crawler
-ENV ERGO_VERSION 4.0.7
+ENV ERGO_VERSION 4.0.8
 RUN apk add --no-cache --update ca-certificates curl && \
     update-ca-certificates && \
     curl -sLo /ergo.jar "https://github.com/ergoplatform/ergo/releases/download/v${ERGO_VERSION}/ergo-${ERGO_VERSION}.jar"
