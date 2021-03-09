@@ -29,4 +29,4 @@ java -Dlogback.stdout.level=${WAVES_LOG_LEVEL} \
 	-Xmx${WAVES_HEAP_SIZE} \
 	-Dconfig.override_with_env_vars=true \
 	${JAVA_OPTS} \
-	-jar /app/waves.jar "/app/waves-${WAVES_NETWORK}.conf"
+	-jar /app/waves.jar "/app/local.conf"

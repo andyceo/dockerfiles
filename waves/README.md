@@ -7,7 +7,7 @@
 
 Will be the same as **Waves** [releases](https://github.com/wavesplatform/Waves/releases), without letter `v` in version string, so for specific release `v1.1.5` use:
 
-    docker run -d andyceo/waves:1.1.5
+    docker run -d andyceo/waves:1.2.18
 
 
 ## Volumes
@@ -32,7 +32,7 @@ Image support following environment variables:
 
 Default environment variables values you can see in [entrypoint.sh](entrypoint.sh).
 
-The working directory in container is `/app`, so you should place custom config to `/app/local.conf` to read it from default configuration file (see `include "local.conf"` in `/waves-mainnet.conf` for example). Example: `-v /etc/waves/local.conf:/app/local.conf:ro` to pass your `/etc/waves/local.conf` file into container.
+The working directory in container is `/app`, so you must place custom config to `/app/local.conf`. Example: `-v /etc/waves/local.conf:/app/local.conf:ro` to pass your `/etc/waves/local.conf` file into container.
 
 
 ## Misc
