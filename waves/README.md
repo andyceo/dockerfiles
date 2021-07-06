@@ -7,7 +7,7 @@
 
 Will be the same as **Waves** [releases](https://github.com/wavesplatform/Waves/releases), without letter `v` in version string, so for specific release `v1.1.5` use:
 
-    docker run -d andyceo/waves:1.2.18
+    docker run -d andyceo/waves:1.3.6
 
 
 ## Volumes
