@@ -4,5 +4,5 @@ RUN apk update && apk add tor && \
     rm -rf /tmp/* /var/tmp/* /var/cache/*
 EXPOSE 9050
 USER tor
-ENTRYPOINT [ "tor" ]
-CMD [ "-f", "/etc/tor/torrc.default" ]
+ENTRYPOINT ["tor"]
+CMD ["-f", "/etc/tor/torrc.default"]

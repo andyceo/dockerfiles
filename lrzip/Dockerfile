@@ -4,7 +4,7 @@ RUN apk add --update git autoconf automake libtool gcc musl-dev zlib-dev bzip2-d
     cd /lrzip && ./autogen.sh && ./configure && make -j `nproc` && make install
 
 FROM alpine
-MAINTAINER Andrey Andreev <andyceo@yandex.ru> (@andyceo)
+LABEL maintainer="Andrey Andreev <andyceo@yandex.ru> (@andyceo)"
 RUN apk add --update --no-cache lzo libbz2 libstdc++ && \
     rm -rf /tmp/* /var/tmp/*
 COPY --from=builder /usr/local/bin/lrzip /usr/local/bin/lrzip
