@@ -3,7 +3,7 @@ OpenLDAP
 
 [![Docker Pulls](https://badgen.net/docker/pulls/andyceo/openldap)](https://hub.docker.com/r/andyceo/openldap)
 
-This repository contain OpenLDAP server, hosted on Alpine Linux inside the Docker container.
+This repository contains OpenLDAP server, hosted on Alpine Linux inside the Docker container.
 
 
 ## Quick start
