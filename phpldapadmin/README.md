@@ -6,6 +6,18 @@ phpLDAPadmin
 This repository contains phpLDAPadmin web application, hosted on Alpine Linux inside the Docker container.
 
 
+## Environment variables
+
+Take a look at [entrypoint.sh](entrypoint.sh) to see variables default values.
+
+- `LDAP_HOST`: LDAP server host or IP address
+- `LDAP_PORT`: LDAP server port
+- `LDAP_NAME`: plain string containing human-readable LDAP server name
+- `LDAP_BASEDN`: root LDAP tree element, for example `dc=ruware,dc=com`
+- `LDAP_AUTHTYPE`: authentication type, for example `session`
+- `LDAP_BINDID`
+
+
 ## Quick start
 
 Run as daemon:

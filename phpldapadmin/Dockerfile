@@ -6,7 +6,7 @@ ENV VERSION 1.2.6.2
 RUN apk add --update --no-cache --purge --clean-protected phpldapadmin="$VERSION-r0" php7-fpm nginx && \
     cp /etc/phpldapadmin/config.php.example /etc/phpldapadmin/config.php && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/*
-COPY ./config/nginx/phpldapadmin.conf /etc/nginx/http.d/default.conf
+COPY ./etc /etc
 COPY ./entrypoint.sh /entrypoint.sh
 EXPOSE 80
 ENTRYPOINT ["sh", "/entrypoint.sh"]
