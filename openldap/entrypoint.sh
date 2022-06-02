@@ -14,8 +14,11 @@ then
     echo "Using LDAP_SUFFIX=${LDAP_SUFFIX}, LDAP_ROOTDN=${LDAP_ROOTDN}..."
     sed -i "s/dc=my-domain,dc=com/${LDAP_SUFFIX}/" ${SLAPD_LDIF}
     sed -i "s/cn=Manager,/cn=${LDAP_ROOTDN},/" ${SLAPD_LDIF}
-    sed -i 's/back_mdb.la/back_mdb.so/g' ${SLAPD_LDIF}
+    sed -i "s/back_mdb.la/back_mdb.so/g" ${SLAPD_LDIF}
     sed -i "s/olcRootPW: secret/olcRootPW: ${LDAP_ROOTPW:-secret}/" ${SLAPD_LDIF}
+    sed -i "/^include: file:\/\/\/etc\/openldap\/schema\/core.ldif/a include: file:\/\/\/etc\/openldap\/schema\/cosine.ldif" ${SLAPD_LDIF}
+    sed -i "/^include: file:\/\/\/etc\/openldap\/schema\/cosine.ldif/a include: file:\/\/\/etc\/openldap\/schema\/inetorgperson.ldif" ${SLAPD_LDIF}
+    sed -i "/^include: file:\/\/\/etc\/openldap\/schema\/inetorgperson.ldif/a include: file:\/\/\/etc\/openldap\/schema\/nis.ldif" ${SLAPD_LDIF}
     rm -rf ${DATA_DIR}/*
     slapadd -n 0 -F ${CONF_DIR} -l ${SLAPD_LDIF}
     chown -R ldap:ldap ${CONF_DIR}/*
