@@ -1,11 +1,12 @@
 FROM alpine as crawler
-ENV ERGO_VERSION 4.0.13
+ENV VERSION 4.0.31
 RUN apk add --no-cache --update ca-certificates curl && \
     update-ca-certificates && \
-    curl -sLo /ergo.jar "https://github.com/ergoplatform/ergo/releases/download/v${ERGO_VERSION}/ergo-${ERGO_VERSION}.jar"
+    curl -sLo /ergo.jar "https://github.com/ergoplatform/ergo/releases/download/v${VERSION}/ergo-${VERSION}.jar"
 
 FROM openjdk:11-jre-slim
 LABEL maintainer="Andrey Andreev <andyceo@yandex.ru> (@andyceo)"
+ENV VERSION 4.0.31
 WORKDIR /app
 COPY --from=crawler /ergo.jar /app/
 RUN mkdir /app/.ergo
